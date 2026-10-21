@@ -1,0 +1,17 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<h2>Product Search <span class="badge safe">{{ mode }}</span></h2>
+<form method="get">
+  <input type="text" name="q" value="{{ query }}">
+  <button type="submit">Search</button>
+</form>
+{% if results %}
+<table>
+  <tr><th>ID</th><th>Name</th><th>Price</th><th>Category</th></tr>
+  {% for r in results %}
+  <tr><td>{{ r.id }}</td><td>{{ r.name }}</td><td>${{ r.price }}</td><td>{{ r.category }}</td></tr>
+  {% endfor %}
+</table>
+{% endif %}
+<p><i>Same data, parameterized query — injection payloads here are treated as literal text.</i></p>
+{% endblock %}

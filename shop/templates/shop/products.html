@@ -1,0 +1,21 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<h2>Product Search <span class="badge vuln">{{ mode }}</span></h2>
+<form method="get">
+  <input type="text" name="q" value="{{ query }}" placeholder="Search products...">
+  <button type="submit">Search</button>
+</form>
+{% if results %}
+<table>
+  <tr><th>ID</th><th>Name</th><th>Price</th><th>Category</th></tr>
+  {% for r in results %}
+  <tr>
+    <td>{{ r.id }}</td>
+    <td><a href="/product/{{ r.id }}/">{{ r.name }}</a></td>
+    <td>${{ r.price }}</td>
+    <td>{{ r.category }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% elif query %}<p>No results.</p>{% endif %}
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<h2>Profile</h2>
+<p>Username: <b>{{ username }}</b></p>
+{% if full_name %}<p>Name: {{ full_name }} | Email: {{ email }}</p>{% endif %}
+<p><i>Loaded via: {{ via }}</i></p>
+{% endblock %}

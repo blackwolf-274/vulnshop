@@ -1,0 +1,10 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<h2>{{ p.name }}</h2>
+<p><b>Price:</b> ${{ p.price }} | <b>Category:</b> {{ p.category }}</p>
+<p>{{ p.description }}</p>
+<h3>Comments</h3>
+{% for c in comments %}
+  <p><b>{{ c.author }}</b>: {{ c.body }}</p>
+{% empty %}<p>No comments.</p>{% endfor %}
+{% endblock %}
